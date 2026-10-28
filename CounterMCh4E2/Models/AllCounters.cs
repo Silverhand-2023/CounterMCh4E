@@ -37,16 +37,18 @@ namespace CounterMCh4E2.Models
             if (!File.Exists(path))
                 return;
 
-            XDocument srcTree = XDocument.Load(path);
-            Counters = new ObservableCollection<Counter>();
-            if(srcTree.Root == null)
-                return;
-            IEnumerable<XElement> redElements = srcTree.Root.Elements("Counter");
-
-            foreach (XElement element in redElements)
+            try
             {
-                AddCounter(element.Element("Name").Value, int.Parse(element.Element("InitialValue").Value), int.Parse(element.Element("Value").Value), element.Element("Color").Value);
+                XDocument srcTree = XDocument.Load(path);
+                Counters = new ObservableCollection<Counter>();
+                IEnumerable<XElement> redElements = srcTree.Root.Elements("Counter");
+
+                foreach (XElement element in redElements)
+                {
+                    AddCounter(element.Element("Name").Value, int.Parse(element.Element("InitialValue").Value), int.Parse(element.Element("Value").Value), element.Element("Color").Value);
+                }
             }
+            catch { }
         }
         public void SaveCounters()
         {
