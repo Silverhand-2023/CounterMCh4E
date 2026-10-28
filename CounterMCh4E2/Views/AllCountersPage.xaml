@@ -53,9 +53,10 @@
             <CollectionView x:Name="countersCollection"
                             ItemsSource="{Binding Counters}">
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Horizontal"
+                    <GridItemsLayout Orientation="Vertical"
                                     HorizontalItemSpacing="10"
-                                    VerticalItemSpacing="10"/>
+                                    VerticalItemSpacing="10"
+                                     Span="4"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
 
