@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CounterMCh4E2.Views.CounterView">
+    
+    <Border WidthRequest="300">
+        <StackLayout HorizontalOptions="Center" 
+                     Margin="10">
+
+            <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Margin="0,10">
+                <Label Text="{Binding Name}" 
+                       HorizontalTextAlignment="Center" 
+                       TextColor="{Binding Color}"
+                       FontSize="20"/>
+                <Button Clicked="Remove_Clicked"
+                        Text="X"
+                        BackgroundColor="#cc0000"
+                        TextColor="White"
+                        FontSize="12"/>
+            </FlexLayout>
+            
+            <Label Text="{Binding Value}" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="60"
+                   TextColor="{Binding Color}"
+                   Margin="10"/>
+            
+            <FlexLayout JustifyContent="SpaceAround">
+                <Button Clicked="Decrease_Clicked"
+                        Text="-"
+                        FontSize="20"
+                        BackgroundColor="#ff8888"/>
+                <Button Clicked="Reset_Clicked"
+                        Text="Resetuj"
+                        FontSize="15"
+                        BackgroundColor="#8888bb"/>
+                <Button Clicked="Increase_Clicked"
+                        Text="+"
+                        FontSize="20"
+                        BackgroundColor="#88ff88"/>
+            </FlexLayout>
+        </StackLayout>
+    </Border>
+    
+</ContentView>
