@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace CounterMCh4E2.Models
@@ -16,14 +10,7 @@ namespace CounterMCh4E2.Models
 
         public AllCounters()
         {
-            try
-            {
-                LoadCounters();
-            }
-            catch
-            {
-
-            }
+            LoadCounters();
         }
 
         public void AddCounter(string name, int initialValue, string color)
@@ -52,6 +39,8 @@ namespace CounterMCh4E2.Models
 
             XDocument srcTree = XDocument.Load(path);
             Counters = new ObservableCollection<Counter>();
+            if(srcTree.Root == null)
+                return;
             IEnumerable<XElement> redElements = srcTree.Root.Elements("Counter");
 
             foreach (XElement element in redElements)
